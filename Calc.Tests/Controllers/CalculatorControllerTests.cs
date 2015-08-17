@@ -22,7 +22,7 @@ namespace Calc.Controllers.Tests
 
             // Declarar
             Assert.IsNotNull(result);
-            Assert.AreEqual("1,2,C,4,E,C,7,8,C,E", result);
+            Assert.AreEqual("0,1,2,C,4,E,C,7,8,C,E", result);
         }
 
         [TestMethod()]
@@ -50,7 +50,7 @@ namespace Calc.Controllers.Tests
 
             // Declarar
             Assert.IsNotNull(result);
-            Assert.AreEqual("1,2,3,4,5,6,7,8,9,10", result);
+            Assert.AreEqual("0,1,2,3,4,5,6,7,8,9,10", result);
         }
 
         [TestMethod()]
@@ -64,7 +64,7 @@ namespace Calc.Controllers.Tests
 
             // Declarar
             Assert.IsNotNull(result);
-            Assert.AreEqual("2,4,6,8,10", result);
+            Assert.AreEqual("0,2,4,6,8,10", result);
         }
 
         [TestMethod()]
@@ -78,7 +78,7 @@ namespace Calc.Controllers.Tests
 
             // Declarar
             Assert.IsNotNull(result);
-            Assert.AreEqual("1,1,2,3,5,8,13,21,34,55", result);
+            Assert.AreEqual("0,1,1,2,3,5,8,13,21,34,55", result);
         }
     }
 }

@@ -1,7 +1,11 @@
 ﻿$(document).ready(function () {
     $("#form1").submit(function (e) {
-        e.preventDefault();
-        calculate();
+        if ($("#btnSubmit").disabled == "disabled")
+            return false;
+        else {
+            e.preventDefault();
+            calculate();
+        }
     });
 });
 
@@ -9,23 +13,25 @@ function calculate() {
 
     if ($("#form1").valid())
     {
+        $("#btnSubmit").prop("disabled", true);
+        $(".se-pre-con").fadeIn("slow");
         var calculationUrl;
         var Data = $("#req_1").val();
         switch ($("input[name='radio_1']:checked").val()) {
             case "val1":
-                calculationUrl = "http://localhost:58059/api/calculator/GetAllNumbers/" + Data;
+                calculationUrl = $(location).attr('protocol') + "//"+ $(location).attr('host') + "/api/calculator/GetAllNumbers/" + Data;
                 break;
             case "val2":
-                calculationUrl = "http://localhost:58059/api/calculator/GetOddNumbers/" + Data;
+                calculationUrl = $(location).attr('protocol') + "//" + $(location).attr('host') + "/api/calculator/GetOddNumbers/" + Data;
                 break;
             case "val3":
-                calculationUrl = "http://localhost:58059/api/calculator/GetEvenNumbers/" + Data;
+                calculationUrl = $(location).attr('protocol') + "//" + $(location).attr('host') + "/api/calculator/GetEvenNumbers/" + Data;
                 break;
             case "val4":
-                calculationUrl = "http://localhost:58059/api/calculator/getmultiplenumbers/" + Data;
+                calculationUrl = $(location).attr('protocol') + "//" + $(location).attr('host') + "/api/calculator/getmultiplenumbers/" + Data;
                 break;
             case "val5":
-                calculationUrl = "http://localhost:58059/api/calculator/GetFibonacchiNumbers/" + Data;
+                calculationUrl = $(location).attr('protocol') + "//" + $(location).attr('host') + "/api/calculator/GetFibonacchiNumbers/" + Data;
                 break;
         }
         $.ajax({
@@ -43,10 +49,14 @@ function calculate() {
 };
 function ServiceSucceeded(result) {
     $("#txtresult").val(result);
+    $("#btnSubmit").prop("disabled", false);
+    $(".se-pre-con").fadeOut("slow");
 }
 
 function ServiceFailed(xhr) {
     alert("There was an error in the application");
+    $("#btnSubmit").prop("disabled", false);
+    $(".se-pre-con").fadeOut("slow");
     /*
     if (xhr.responseText) {
         var err = xhr.responseText;

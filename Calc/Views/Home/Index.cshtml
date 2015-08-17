@@ -1,44 +1,20 @@
 ﻿
 <form id="form1" class="form-wrapper" method="get">
-    <h1 class="text-center modal-title">Calculator</h1>
+    <h1 class="text-center modal-title page-header">Calculator</h1><br/>
     <div class="container">
-        <div class="col-sm-3">
-            <div class="form-group">
-                <label for="req_1">Number</label>
-                <input id="req_1" class="required" placeholder="Number" type="number" min="0" name="req_1" value="" size="24" required="required" />
-                <label for="req_1" class="error alert-danger"></label>
-            </div>
-            <br/>
-            <div class="form-group" style="border:solid; border-color:gainsboro">
-                <br/>
-                <label for="radio_1">All numbers</label>
-                <input id="radio_1" class="radio" type="radio" name="radio_1" value="val1" required="required" />
-                <label for="radio_1">Odd numbers</label>
-                <input type="radio" class="radio" name="radio_1" value="val2" required="required" />
-                <label for="radio_1">Even Numbers</label>
-                <input type="radio" class="radio" name="radio_1" value="val3" required="required" />
-                <label for="radio_1">Multiple Function</label>
-                <input type="radio" class="radio" name="radio_1" value="val4" required="required" />
-                <label for="radio_1">Fibonacchi</label>
-                <input type="radio" class="radio" name="radio_1" value="val5" required="required" />
-                <label for="radio_1" class="error alert-danger"></label>
-            </div>
-            <button type="button" onclick="calculate();" class="btn btn-primary" >Submit</button>
-        </div>
-        <div class="col-sm-3">
-            <textarea id="txtresult" rows="20" disabled="disabled" style="width:100%" type="text"></textarea>
-        </div>
         <div class="col-sm-6 list-group-item">
             <h3 class="">Help</h3>
             <ol class="" type="1">
                 <li>Insert a positive number in the number field</li>
-                <li>Choose one type of calculation
-                    <ol type="a">
+                <li>
+                    Choose one type of calculation
+                    <ol type="a" style="text-align:justify">
                         <li>Select all numbers if you want to show all numbers up to and including the number entered</li>
                         <li>Select odd numbers if you want to show all odd numbers up to and including the number entered</li>
                         <li>Select odd numbers if you want to show all even numbers up to and including the number entered</li>
-                        <li>Select odd numbers if you want to show all numbers up to and including the number entered, except
-when:
+                        <li>
+                            Select odd numbers if you want to show all numbers up to and including the number entered, except
+                            when:
                             <ol type="i">
                                 <li>A number is a multiple of 3 output C</li>
                                 <li>A number is a multiple of 5 output E</li>
@@ -51,5 +27,37 @@ when:
                 <li>Press the submit button and the result will be shown in the results field</li>
             </ol>
         </div>
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label for="req_1">Number</label>
+                <input id="req_1" class="required" placeholder="Number" type="number" min="0" name="req_1" value="" size="24" required="required" />
+                <label for="req_1" class="error alert-danger"></label>
+            </div>
+            <br/>
+            <div class="form-group" style="border:solid; border-color:gainsboro">
+                <br/>
+                <label for="radio_1">All numbers</label>
+                <input id="radio_1" class="radio pull-right" type="radio" name="radio_1" value="val1" required="required" /><br/>
+                <label for="radio_1">Odd numbers</label>
+                <input type="radio" class="radio pull-right" name="radio_1" value="val2" required="required" /><br />
+                <label for="radio_1">Even Numbers</label>
+                <input type="radio" class="radio pull-right" name="radio_1" value="val3" required="required" /><br />
+                <label for="radio_1">Multiple Function</label>
+                <input type="radio" class="radio pull-right" name="radio_1" value="val4" required="required" /><br />
+                <label for="radio_1">Fibonacchi</label>
+                <input type="radio" class="radio pull-right" name="radio_1" value="val5" required="required" /><br />
+                <label for="radio_1" class="error alert-danger"></label>
+            </div>
+            <div class="text-center">
+                <button id="btnSubmit" type="button" onclick="calculate();" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+        <div class="col-sm-3 text-center">
+            <h3>Result</h3>
+            <textarea id="txtresult" rows="19" disabled="disabled" style="width:100%" type="text"></textarea>
+        </div>
+    </div>
+    <div id="loaddiv" class="se-pre-con">
+
     </div>
 </form>

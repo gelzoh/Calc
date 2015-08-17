@@ -20,6 +20,7 @@ namespace Calc.Controllers
             String response = "";
             try
             {
+                response += id == 0 ? "0" : "0,";
                 for (int i = 1; i <= id; i++)
                 {
                     if (i % 3 == 0 && i % 5 == 0)
@@ -50,7 +51,7 @@ namespace Calc.Controllers
         {
             String response = "";
             try
-            { 
+            {
                 for (int i = 1; i <= id; i += 2)
                 {
                     response += i.ToString();
@@ -75,7 +76,7 @@ namespace Calc.Controllers
             String response = "";
             try
             {
-                for (int i = 1; i < id; i++)
+                for (int i = 0; i < id; i++)
                 {
                     response += i.ToString() + ",";
                 }
@@ -96,7 +97,7 @@ namespace Calc.Controllers
             String response = "";
             try
             {
-                for (int i = 2; i <= id; i += 2)
+                for (int i = 0; i <= id; i += 2)
                 {
                     response += i.ToString();
                     if (i != id - 1 && i != id)
@@ -117,11 +118,15 @@ namespace Calc.Controllers
         {
             String response = "";
             try
-            { 
-                for (int i = 1; i <= id; i++)
+            {
+                double previousValue = -1;
+                double currentResult = 1;
+                for (int i = 0; i <= id; ++i)
                 {
-
-                    response += CalculateFibonacchi(i).ToString();
+                    double sum = currentResult + previousValue;
+                    previousValue = currentResult;
+                    currentResult = sum;
+                    response += currentResult.ToString();
                     if (i < id)
                         response += ",";
                 }
@@ -133,17 +138,6 @@ namespace Calc.Controllers
                 throw ex;
             }
             return response;
-        }
-
-        private static int CalculateFibonacchi(int n)
-        {
-            if ((n == 0) || (n == 1))
-            {
-                return n;
-            }
-            else
-                return CalculateFibonacchi(n - 1) + CalculateFibonacchi(n - 2);
-
         }
     }
 }

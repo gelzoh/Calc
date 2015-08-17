@@ -46,14 +46,14 @@ function ServiceSucceeded(result) {
 }
 
 function ServiceFailed(xhr) {
-    alert(xhr.responseText);
-
+    alert("There was an error in the application");
+    /*
     if (xhr.responseText) {
         var err = xhr.responseText;
         if (err)
-            error(err);
+            alert(err);
         else
-            error({ Message: "Unknown server error." })
-    }
+            alert("Unknown server error.");
+    }*/
     return;
 };
